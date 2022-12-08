@@ -1,8 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { ChartsModule, ThemeService } from 'ng2-charts';
-
 import { AppComponent } from './app.component';
 import { CardComponent } from './components/card/card.component';
 import { RiskMeterComponent } from './components/risk-meter/risk-meter.component';
@@ -26,7 +25,8 @@ import { PiChartComponent } from './components/card/pi-chart/pi-chart.component'
   ],
   imports: [
     BrowserModule,
-    ChartsModule
+    ChartsModule,
+    HttpClientModule
   ],
   providers: [ThemeService],
   bootstrap: [AppComponent]

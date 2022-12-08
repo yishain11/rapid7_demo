@@ -1,15 +1,17 @@
 import express, { Express, Request, Response } from 'express';
 import FNS from './utils/functions'
+import cors from 'cors';
 
 const server = express();
 const port = process.env.NODE_PORT || 1337;
-let db;
-
+server.use(cors())
 server.get('/', (req: Request, res: Response) => {
   res.send('Express + TypeScript Server');
 });
 
 server.post('/data',async (req: Request, res: Response)=>{
+  console.log('got data req');
+  
   const data = await FNS.getData();
   res.send(JSON.stringify(data)).end()
 })

@@ -11,10 +11,12 @@
   "keywords": [],
   "author": "",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongodb": "^4.12.1"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.13",
     "@types/express": "^4.17.14",
     "@types/node": "^18.11.11",
     "@typescript-eslint/eslint-plugin": "^5.46.0",
