@@ -1,12 +1,31 @@
 import express, { Express, Request, Response } from 'express';
+import FNS from './utils/functions'
+
 const server = express();
 const port = process.env.NODE_PORT || 1337;
-console.log('process.env', process.env.MONGO_URL)
+let db;
 
 server.get('/', (req: Request, res: Response) => {
   res.send('Express + TypeScript Server');
 });
-server.listen(port, () => console.log(`server started on port ${port}`));
+
+server.post('/data',async (req: Request, res: Response)=>{
+  const data = await FNS.getData();
+  res.send(JSON.stringify(data)).end()
+})
+
+  
+
+server.listen(port, async () => {
+  try {
+    await FNS.initialDataLoad() 
+  } catch (error) {
+    console.log('error', error)
+  } finally {
+    console.log('server listening');
+    
+  }
+});
 
 
 /**
