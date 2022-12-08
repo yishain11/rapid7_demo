@@ -1,7 +1,7 @@
 .container {
     display: grid;
     margin: auto;
-    grid-template-columns: 1fr 1.5fr;
+    grid-template-columns: 1fr 1.2fr;
     grid-template-areas:
     "card1 card2"
     "card3 card4";

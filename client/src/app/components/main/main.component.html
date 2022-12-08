@@ -1,12 +1,15 @@
 <p>main works!</p>
 <div class="container">
-  <app-card [title]="'clear web types'" id="card1">
-    <!-- <doughnut-chart [data]="[22, 30, 40]"></doughnut-chart> -->
+  <app-card [title]="'clear web types'" id="card1" class="valuesCard">
+    <app-value-table></app-value-table>
   </app-card>  
     <app-card [title]="'clear web severities'" id="card2">
+      <app-pi-chart></app-pi-chart>
     </app-card>
     <app-card [title]="'dark web types'" id="card3">
+      <app-value-table></app-value-table>
     </app-card>
     <app-card [title]="'dart web severities'" id="card4">
+      <app-pi-chart></app-pi-chart>
     </app-card>
 </div>

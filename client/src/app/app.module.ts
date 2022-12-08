@@ -9,6 +9,8 @@ import { RiskMeterComponent } from './components/risk-meter/risk-meter.component
 import { DoughnutChartComponent } from './components/doughnut-chart/doughnut-chart.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MainComponent } from './components/main/main.component';
+import { ValueTableComponent } from './components/card/value-table/value-table.component';
+import { PiChartComponent } from './components/card/pi-chart/pi-chart.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { MainComponent } from './components/main/main.component';
     RiskMeterComponent,
     DoughnutChartComponent,
     HeaderComponent,
-    MainComponent
+    MainComponent,
+    ValueTableComponent,
+    PiChartComponent
   ],
   imports: [
     BrowserModule,
