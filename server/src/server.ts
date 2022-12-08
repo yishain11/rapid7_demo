@@ -1,9 +1,13 @@
 import express, { Express, Request, Response } from 'express';
 const server = express();
 const port = process.env.NODE_PORT || 1337;
-console.log('process.env', process.env)
+console.log('process.env', process.env.MONGO_URL)
 
+server.get('/', (req: Request, res: Response) => {
+  res.send('Express + TypeScript Server');
+});
 server.listen(port, () => console.log(`server started on port ${port}`));
+
 
 /**
  * 
