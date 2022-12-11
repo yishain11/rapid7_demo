@@ -12,12 +12,18 @@ export class HeaderComponent implements OnInit {
   typesList: string[];
   selectedType: string = this.dataService._currentType;
   typeSub: Subscription;  
+  riskSub: Subscription;
+  riskScore: number;
+
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
     this.typesList= this.dataService.types;
     this.typeSub = this.dataService.getTypesSub().subscribe(types=>{
       this.typesList = types;
+    })
+    this.riskSub = this.dataService.getRiskSub().subscribe(risk=>{
+      this.riskScore = Math.floor(risk);
     })
   }
 
@@ -28,6 +34,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.typeSub.unsubscribe();
+    this.riskSub.unsubscribe();
   }
 
 }

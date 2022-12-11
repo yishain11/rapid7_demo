@@ -9,5 +9,6 @@ import { DataService } from './services/data.service';
 export class AppComponent {
   constructor(private data: DataService){
     this.data.getData();
+    this.data.fetchRisk();
   }
 }

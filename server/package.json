@@ -2,26 +2,25 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
   "type": "module",
   "scripts": {
-    "build": "",
-    "test": "jest",
-    "start": "clear;node ./src/server.js MONGO_URL=mongodb+srv://yishai1234:1vsKIr6P7bJe30mH@cluster0.etvhefb.mongodb.net/?retryWrites=true&w=majority",
-    "dev": "clear;nodemon ./src/server.js MONGO_URL=mongodb+srv://yishai1234:1vsKIr6P7bJe30mH@cluster0.etvhefb.mongodb.net/?retryWrites=true&w=majority"
+    "test": "mocha",
+    "lint": "npx eslint . --fix",
+    "start": "fuser -k 1337/tcp;clear;node ./src/server.js NODE_ENV=production",
+    "dev": "fuser -k 1337/tcp;clear;nodemon ./src/server.js"
   },
   "keywords": [],
   "author": "",
   "dependencies": {
     "body-parser": "^1.20.1",
     "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "mongodb": "^4.12.1"
+    "express": "^4.17.1"
   },
   "devDependencies": {
+    "chai": "^4.3.7",
     "concurrently": "^7.6.0",
     "eslint": "^8.29.0",
-    "jest": "^29.3.1",
+    "mocha": "^10.2.0",
     "nodemon": "^2.0.20"
   }
 }

@@ -31,8 +31,13 @@ export class DataService {
 
   $resultsSubject = new ReplaySubject<fetchedData>()
   $typesSubject = new ReplaySubject<string[]>()
+  $riskSubject = new ReplaySubject<number>()
 
   constructor(private http: HttpClient) { 
+  }
+
+  getRiskSub(){
+    return this.$riskSubject;
   }
 
   getTypesSub(){
@@ -51,16 +56,19 @@ export class DataService {
   get types(){
     return this._allTyps;
   }
-  // get data matched by sourceType,
-  // aggregated sum aggregation sums of 'severity' and 'type' split by 'networkType'
   
   async getData(){
-    const results = await this.http.post<Promise<{data: fetchedData, types: string[]}>>(serverUrl,{sourceType:this._currentType}).toPromise()
+    const results = await this.http.post<Promise<{data: fetchedData, types: string[]}>>(`${serverUrl}/data`,{sourceType:this._currentType}).toPromise();
     this._results = results.data;
     this.$resultsSubject.next(this._results);
     this._allTyps = results.types;
     this.$typesSubject.next(this._allTyps)
     return this._results;
+  }
+
+  async fetchRisk(){
+    const riskObj = await this.http.get<Promise<{riskScore: number}>>(`${serverUrl}/risk`).toPromise();
+    this.$riskSubject.next(riskObj.riskScore);
   }
 
 }

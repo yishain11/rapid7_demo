@@ -1,11 +1,24 @@
 @import "../../colors";
 
+@keyframes slide {
+    0% {
+        opacity: 0;
+        transform: rotateX(-120deg) scale(0.9,0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: rotateX(0deg) scale(1,1);
+    }
+}
+
 :host {
     display: block;
     .container {
         height: 279px;
         background-color: $component-main-bg-color;
-
+        animation: slide 1s backwards;
+        animation-delay: .5s;
+        animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
         .header {
             height: 37px;
             display: flex;
