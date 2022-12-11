@@ -11,8 +11,7 @@ server.use(bodyParser.json())
 
 server.post('/data',async (req, res)=>{
   const filterObj = req.body;
-  // const data = await FNS.loadDbData(filterObj);
-  const data = await FNS.localLoadData(filterObj.sourceType);
+  const data = await FNS.processData(filterObj.sourceType);
   res.send(JSON.stringify(data)).end()
 })
 

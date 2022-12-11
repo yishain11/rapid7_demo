@@ -52,12 +52,17 @@ async function loadDataToDb(){
     }
 }
 
-async function localLoadData(sourceType){
+async function loadLocalData(){
+    const dataPath = path.join(__dirname,'../../assets/data.json')
+    const data = JSON.parse(await fs.readFile(dataPath,'utf-8'))
+    return data;
+}
+
+async function processData(sourceType){
     if(fetchedOrginizedData[sourceType]){
         return fetchedOrginizedData[sourceType];
     }
-    const dataPath = path.join(__dirname,'../../assets/data.json')
-    const data = JSON.parse(await fs.readFile(dataPath,'utf-8'))
+    const data = loadLocalData();
     const orginizedData = {}
     const allTypes = []
     data.forEach(dataObj=>{
@@ -115,5 +120,5 @@ async function loadDbData(filterObj = {}){
 }
 
 
-const fns = {localLoadData,loadDataToDb,loadDbData,connectClient,closeClient}
+const fns = {loadLocalData, processData,loadDataToDb,loadDbData,connectClient,closeClient}
 export default fns;
