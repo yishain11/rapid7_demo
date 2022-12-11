@@ -1,8 +1,11 @@
 <div class="container">
-    <div class="chart">
-        <doughnut-chart [data]="[22, 30, 40]"></doughnut-chart>
+    <div class="chart" *ngIf="values">
+        <doughnut-chart [data]="[values.high,values.medium,values.low]"></doughnut-chart>
     </div>
-    <div class="valRow">
-
+    <div class="valRow" >
+        <div class="valCell" *ngFor="let itemObj of values | keyvalue">
+            <div>{{itemObj.key | uppercase}}</div>
+            <div class="val">{{itemObj.value}}</div>
+        </div>
     </div>
 </div>

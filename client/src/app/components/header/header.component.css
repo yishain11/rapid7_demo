@@ -1,0 +1,43 @@
+@media (max-width: 600px){
+    .riskContainer {
+        margin-bottom: 2%;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+}
+
+.titleContainer {
+    display: flex;
+    align-items: center;
+}
+
+.riskContainer {
+    width: 100%;
+}
+
+#select {
+    border: 1px solid #4B81A6;
+    background-color: #254A69;
+    width: 15vw;
+    height: 3vh;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2vh;
+}
+
+span {
+    font-weight: 400;
+    font-size: small;
+    margin-right: auto;
+    font-family: Open sans;
+}
+
+::ng-deep .mat-select-value {
+    color: white;
+}
+

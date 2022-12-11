@@ -1,2 +1,13 @@
-<p>header works!</p>
-<risk-meter [percentage]="10"></risk-meter>
+<div class="container">
+    <div class="titleContainer">
+        <span>{{"system risk meter" | uppercase}}</span>
+        <div class="costum-select">
+            <select name="" id="select" (change)="onValueChange($event.target.value)">
+                <option *ngFor="let type of typesList" [value]="type">{{type  | splitTitle }}</option>
+            </select>
+        </div>
+    </div>
+    <div class="riskContainer">
+        <risk-meter [percentage]="80"></risk-meter>
+    </div>
+</div>

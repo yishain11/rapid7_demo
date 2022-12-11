@@ -1,1 +1,8 @@
-<p>value-table works!</p>
+<div class="container">
+    <div class="valRow" *ngFor="let value of values | keyvalue">
+        <div class="valCell">
+            <div class="value row">{{value.value}}</div>
+            <div class="row">{{value.key | splitTitle | uppercase}}</div>
+        </div>
+    </div>
+</div>

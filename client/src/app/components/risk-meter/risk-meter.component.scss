@@ -22,7 +22,7 @@ $progress-inner-color: #8DB4D3;
 
     .progress-bar {
       transition: width 400ms ease-in-out;
-      background-color: $progress-inner-color;
+      background-image: linear-gradient(to right,#4DAFD0,#BBB158 );
       width: 0;
       height: 5px;
     }

@@ -1,11 +1,27 @@
-.container {
-    display: grid;
-    margin: auto;
-    grid-template-columns: 1fr 1.2fr;
-    grid-template-areas:
-    "card1 card2"
-    "card3 card4";
-    gap: 1rem;
+@media (min-width: 600px) {
+    .container {
+        box-sizing: border-box;
+        margin-top: 2%;
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        grid-template-areas:
+        "card1 card2"
+        "card3 card4";
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 599px) {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "card1"
+        "card2"
+        "card3"
+        "card4";
+        row-gap: 1%;
+    }
 }
 
 #card1 {

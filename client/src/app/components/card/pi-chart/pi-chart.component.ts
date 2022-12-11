@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-pi-chart',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pi-chart.component.css']
 })
 export class PiChartComponent implements OnInit {
+  @Input() values: {high: number, medium: number, low: number}
 
   constructor() { }
 

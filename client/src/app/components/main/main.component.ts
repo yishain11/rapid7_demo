@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/services/data.service';
+import { ReplaySubject } from 'rxjs';
+import { DataPoint, DataService, fetchedData } from 'src/app/services/data.service';
+
 
 @Component({
   selector: 'app-main',
@@ -7,16 +9,18 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  data: any
-
+  data: fetchedData;
+  $dataSubject: ReplaySubject<fetchedData>
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.getData()
+    this.$dataSubject = this.dataService.getResutlsSub();
+    this.$dataSubject.subscribe(data=>{
+      this.data = data;
+    })
   }
 
-  async getData(){
-    this.data = await this.dataService.getData()
+  ngOnDestroy(){
+    this.$dataSubject.unsubscribe();
   }
-
 }

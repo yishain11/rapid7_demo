@@ -1,15 +1,15 @@
-<p>main works!</p>
 <div class="container">
   <app-card [title]="'clear web types'" id="card1" class="valuesCard">
-    <app-value-table></app-value-table>
+    <app-value-table *ngIf="data; else loading" [values]="data.ClearWeb.values"></app-value-table>
   </app-card>  
     <app-card [title]="'clear web severities'" id="card2">
-      <app-pi-chart></app-pi-chart>
+      <app-pi-chart [values]="data.ClearWeb.severity" *ngIf="data; else loading"></app-pi-chart>
     </app-card>
     <app-card [title]="'dark web types'" id="card3">
-      <app-value-table></app-value-table>
+      <app-value-table *ngIf="data; else loading" [values]="data.DarkWeb.values"></app-value-table>
     </app-card>
     <app-card [title]="'dart web severities'" id="card4">
-      <app-pi-chart></app-pi-chart>
+      <app-pi-chart  [values]="data.DarkWeb.severity" *ngIf="data; else loading"></app-pi-chart>
     </app-card>
 </div>
+<ng-template #loading>Loading data...</ng-template>

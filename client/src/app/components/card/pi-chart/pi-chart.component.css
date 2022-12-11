@@ -15,4 +15,16 @@
 .valRow {
     display: flex;
     flex-grow: 1;
+    width: 100%;
+    justify-content: center;
+    gap: 3rem;
+}
+.valCell {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.val {
+    font-weight: 600;
 }

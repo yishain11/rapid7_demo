@@ -10,8 +10,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { MainComponent } from './components/main/main.component';
 import { ValueTableComponent } from './components/card/value-table/value-table.component';
 import { PiChartComponent } from './components/card/pi-chart/pi-chart.component';
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SplitTitlePipe } from 'src/app/pipes/title.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,12 +22,15 @@ import { PiChartComponent } from './components/card/pi-chart/pi-chart.component'
     HeaderComponent,
     MainComponent,
     ValueTableComponent,
-    PiChartComponent
+    PiChartComponent,
+    SplitTitlePipe
   ],
   imports: [
     BrowserModule,
     ChartsModule,
-    HttpClientModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [ThemeService],
   bootstrap: [AppComponent]
